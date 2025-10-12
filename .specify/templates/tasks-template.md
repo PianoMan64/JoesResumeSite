@@ -17,10 +17,9 @@ description: "Task list template for feature implementation"
 - Include exact file paths in descriptions
 
 ## Path Conventions
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **ASP.NET Core Static Site**: `Pages/`, `Views/`, `wwwroot/`, `Models/`, `Services/` at repository root
+- **Tests**: `tests/Unit/`, `tests/Integration/`, `tests/Performance/`
+- Paths shown below assume ASP.NET Core structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================
@@ -45,9 +44,9 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create ASP.NET Core project structure per implementation plan
+- [ ] T002 Initialize .NET project with Bootstrap 5.x and static generation dependencies
+- [ ] T003 [P] Configure project for static site generation and minimal JavaScript usage
 
 ---
 
@@ -59,12 +58,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Setup Bootstrap 5.x integration and CSS build pipeline
+- [ ] T005 [P] Configure Razor Pages/Views for static content generation
+- [ ] T006 [P] Setup wwwroot structure for optimized static assets
+- [ ] T007 Create base layout and shared components using Bootstrap
+- [ ] T008 Configure performance optimization for static generation
+- [ ] T009 Setup accessibility validation and semantic HTML structure
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -80,17 +79,17 @@ Examples of foundational tasks (adjust based on your project):
 
 **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T010 [P] [US1] Performance test for page load time (<2s target) in tests/Performance/test_[name].cs
+- [ ] T011 [P] [US1] Accessibility test for WCAG 2.1 AA compliance in tests/Integration/test_[name].cs
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Create [ContentModel] model in Models/[ContentModel].cs
+- [ ] T013 [P] [US1] Create [PageModel] model in Models/[PageModel].cs
+- [ ] T014 [US1] Implement [ContentService] in Services/[ContentService].cs (depends on T012, T013)
+- [ ] T015 [US1] Implement [Page/View] in Pages/[Page].cshtml or Views/[View].cshtml
+- [ ] T016 [US1] Add Bootstrap styling and responsive design
+- [ ] T017 [US1] Add SEO metadata and structured data markup
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
