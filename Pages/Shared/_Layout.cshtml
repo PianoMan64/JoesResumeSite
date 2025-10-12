@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Joseph R. Pottschmidt</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional resume of Joseph R. Pottschmidt - Software Developer and Musician with expertise in .NET development, Microsoft Office, and professional music performance.">
+    <meta name="keywords" content="software developer, .NET developer, musician, resume, professional">
+    <meta name="author" content="Joseph R. Pottschmidt">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+</head>
+<body>
+    <!-- Skip links for accessibility -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#navigation">Skip to navigation</a>
+    
+    <!-- Header with Navigation -->
+    <header class="sticky-top bg-body border-bottom" role="banner">
+        <nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <span class="navbar-brand h1 mb-0">Joseph R. Pottschmidt</span>
+                
+                <!-- Theme Toggle -->
+                <button class="theme-toggle btn btn-outline-secondary" 
+                        type="button" 
+                        aria-label="Toggle between light and dark theme"
+                        title="Toggle theme">
+                    <i class="bi bi-sun-fill" id="theme-icon" aria-hidden="true"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <div class="navbar-nav ms-auto d-none d-md-flex" id="navigation">
+                    <a class="nav-link" href="#qualifications" aria-label="Go to Qualifications section">Qualifications</a>
+                    <a class="nav-link" href="#education" aria-label="Go to Education section">Education</a>
+                    <a class="nav-link" href="#work-history" aria-label="Go to Work History section">Work History</a>
+                    <a class="nav-link" href="#musical-journey" aria-label="Go to Musical Journey section">Musical Journey</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        @RenderBody()
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="navbar fixed-bottom bg-body border-top d-md-none" role="navigation" aria-label="Mobile navigation">
+        <div class="container-fluid">
+            <div class="row w-100 text-center">
+                <div class="col-3">
+                    <a href="#qualifications" class="mobile-nav-item text-decoration-none" aria-label="Go to Qualifications section">
+                        <i class="bi bi-award fs-5" aria-hidden="true"></i>
+                        <small class="d-block">Skills</small>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="#education" class="mobile-nav-item text-decoration-none" aria-label="Go to Education section">
+                        <i class="bi bi-mortarboard fs-5" aria-hidden="true"></i>
+                        <small class="d-block">Education</small>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="#work-history" class="mobile-nav-item text-decoration-none" aria-label="Go to Work History section">
+                        <i class="bi bi-briefcase fs-5" aria-hidden="true"></i>
+                        <small class="d-block">Work</small>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="#musical-journey" class="mobile-nav-item text-decoration-none" aria-label="Go to Musical Journey section">
+                        <i class="bi bi-music-note fs-5" aria-hidden="true"></i>
+                        <small class="d-block">Music</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Footer -->
+    <footer class="bg-body-tertiary text-center py-3 d-none d-md-block" role="contentinfo">
+        <div class="container">
+            <small class="text-muted">© 2025 Joseph R. Pottschmidt. All rights reserved.</small>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

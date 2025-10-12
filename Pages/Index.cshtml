@@ -1,0 +1,184 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Joseph R. Pottschmidt - Resume";
+}
+
+<!-- Professional Profile Section -->
+<section id="professional-profile" class="section-spacing">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-4">
+                    <h1 class="display-4 fw-bold">@Model.ResumeData.Profile.Name</h1>
+                    <p class="lead text-muted">Software Developer & Professional Musician</p>
+                </div>
+                
+                <div class="row g-3 text-center">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                            <a href="tel:@Model.ResumeData.Profile.Phone" class="text-decoration-none">
+                                @Model.ResumeData.Profile.Phone
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                            <a href="mailto:@Model.ResumeData.Profile.Email" class="text-decoration-none">
+                                @Model.ResumeData.Profile.Email
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                            <span>@Model.ResumeData.Profile.Address.FullAddress</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="bi bi-globe me-2 text-primary"></i>
+                            <a href="@Model.ResumeData.Profile.Website" target="_blank" class="text-decoration-none">
+                                @Model.ResumeData.Profile.Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Qualifications Section -->
+<section id="qualifications" class="section-spacing bg-body-secondary">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2 class="display-5 fw-bold text-center mb-5">Qualifications</h2>
+                
+                <div class="row g-4">
+                    @foreach (var qualification in Model.ResumeData.Qualifications)
+                    {
+                        <div class="col-lg-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="card-title h5 text-primary">@qualification.Category</h3>
+                                    <p class="text-muted small mb-2">@qualification.YearsExperience</p>
+                                    
+                                    <div class="mb-3">
+                                        @foreach (var skill in qualification.Skills)
+                                        {
+                                            <span class="badge bg-secondary me-1 mb-1">@skill</span>
+                                        }
+                                    </div>
+                                    
+                                    @if (!string.IsNullOrEmpty(qualification.Description))
+                                    {
+                                        <p class="card-text small">@qualification.Description</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section-spacing">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold text-center mb-5">Education</h2>
+                
+                @foreach (var education in Model.ResumeData.Education)
+                {
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h3 class="h5 mb-1">@education.Degree</h3>
+                                    <p class="text-primary mb-1">@education.Institution</p>
+                                    @if (!string.IsNullOrEmpty(education.Location))
+                                    {
+                                        <p class="text-muted small mb-0">@education.Location</p>
+                                    }
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <span class="badge bg-primary fs-6">@education.Year</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work History Section -->
+<section id="work-history" class="section-spacing bg-body-secondary">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2 class="display-5 fw-bold text-center mb-5">Work History</h2>
+                
+                @foreach (var work in Model.ResumeData.WorkHistory)
+                {
+                    <div class="card border-0 shadow-sm mb-4 work-experience-item">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3 class="h4 text-primary mb-1">@work.Position</h3>
+                                    <h4 class="h5 mb-2">@work.Company</h4>
+                                    @if (!string.IsNullOrEmpty(work.Location))
+                                    {
+                                        <p class="text-muted small mb-3">@work.Location</p>
+                                    }
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <span class="badge @(work.IsCurrent ? "bg-success" : "bg-secondary") fs-6">
+                                        @work.DateRange
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <ul class="list-unstyled">
+                                @foreach (var responsibility in work.Responsibilities)
+                                {
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        @responsibility
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Musical Journey Section -->
+<section id="musical-journey" class="section-spacing">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold text-center mb-5">@Model.ResumeData.MusicalJourney.Title</h2>
+                
+                @foreach (var musicalSection in Model.ResumeData.MusicalJourney.Sections.OrderBy(s => s.Order))
+                {
+                    <div class="mb-4">
+                        <h3 class="h4 text-primary mb-3">@musicalSection.SectionTitle</h3>
+                        <p class="lead">@musicalSection.Content</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
