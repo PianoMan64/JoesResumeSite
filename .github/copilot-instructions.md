@@ -50,4 +50,14 @@ ASP.NET Core (latest LTS version): Follow standard conventions
 - Network profiles for cross-device access (port 5209)
 
 <!-- MANUAL ADDITIONS START -->
+## Manual Configuration Changes
+- Workspace Settings: GitLens disabled via workspace configuration (`gitlens.enabled: false`)
+- Build Configuration: Solution-based build process using `Joe's Resume Site.sln`
+
+## Manual Content Updates (ResumeContentService.cs)
+- **Professional Profile**: Added headshot configuration with placeholder support
+- **.NET Development Skills**: Expanded to include Visual Studio IDE, WinForms, LINQ, RESTful APIs, and Blazor
+- **Database Technologies**: Added Oracle and Entity Framework to skill set
+- **Professional Music Skills**: Added "Singer" to capabilities
+- **Freelance Work**: Updated end date from "2019" to "Present" (ongoing work)
 <!-- MANUAL ADDITIONS END -->
