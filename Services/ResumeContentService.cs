@@ -36,6 +36,14 @@ public class ResumeContentService : IResumeContentService
                 City = "Battle Ground",
                 State = "WA",
                 ZipCode = "98604"
+            },
+            Headshot = new HeadshotInfo
+            {
+                ImagePath = "/images/headshot.png", // Set to "/images/your-headshot.jpg" when you add your photo
+                AltText = "Joseph R. Pottschmidt - Professional Headshot",
+                PlaceholderText = "Professional Photo",
+                ShowPlaceholder = false, // Set to false when you have an actual image
+                ImageTitle = "Joseph R. Pottschmidt"
             }
         };
     }
@@ -54,14 +62,14 @@ public class ResumeContentService : IResumeContentService
             new Qualification
             {
                 Category = ".NET Development",
-                Skills = new List<string> { "C#", "VB.NET", "Windows Services", "ASP.NET Web Forms", "ASP.NET MVC", "WPF" },
+                Skills = new List<string> { "Visual Studio IDE","C#", "VB.NET", "Windows Services", "ASP.NET Web Forms", "ASP.NET MVC", "WPF", "WinForms", "LINQ" , "RESTful APIs", "Blazor"},
                 YearsExperience = "15 years",
                 Description = "Comprehensive experience in .NET ecosystem from desktop applications to web services and enterprise solutions."
             },
             new Qualification
             {
                 Category = "Database Technologies",
-                Skills = new List<string> { "SQL Server", "SSRS", "T-SQL", "Database Design", "Performance Optimization" },
+                Skills = new List<string> { "SQL Server", "Oracle","SSRS", "T-SQL", "Database Design", "Performance Optimization", "Entity Framework" },
                 YearsExperience = "15 years",
                 Description = "Expert-level database development and reporting with focus on performance optimization and complex query design."
             },
@@ -75,7 +83,7 @@ public class ResumeContentService : IResumeContentService
             new Qualification
             {
                 Category = "Professional Music",
-                Skills = new List<string> { "Piano Performance", "Music Theory", "Live Performance", "Studio Recording", "Music Arrangement" },
+                Skills = new List<string> { "Piano Performance", "Music Theory", "Live Performance", "Studio Recording", "Music Arrangement", "Singer" },
                 YearsExperience = "35+ years",
                 Description = "Professional pianist with extensive performance experience across genres including classical, jazz, contemporary, and worship music."
             }
@@ -124,7 +132,7 @@ public class ResumeContentService : IResumeContentService
                 Company = "Freelance Software Development",
                 Position = "Independent Developer",
                 StartDate = "2015",
-                EndDate = "2019",
+                EndDate = "Present",
                 Responsibilities = new List<string>
                 {
                     "Developed custom software solutions for small to medium businesses",

@@ -70,8 +70,29 @@ interface NavigationItem {
 interface ProfessionalProfileSection {
   id: "professional-profile";
   title: "Contact Information";
+  headshot: HeadshotComponent;
   contact: ContactInformation;
   summary?: string;
+}
+
+interface HeadshotComponent {
+  imagePath?: string; // Optional path to professional photo
+  altText: string; // "Joseph R. Pottschmidt - Professional Headshot"
+  placeholderText: string; // "Professional Photo"
+  showPlaceholder: boolean; // Display placeholder when no image
+  imageTitle?: string; // Tooltip text
+  
+  styling: {
+    shape: "circular";
+    sizes: {
+      desktop: "200px";
+      tablet: "150px";
+      mobile: "120px";
+    };
+    border: "4px solid primary-color";
+    shadow: "elevated";
+    hoverEffect: "subtle-lift";
+  };
 }
 
 interface ContactInformation {

@@ -19,6 +19,7 @@ public class ProfessionalProfile
     public Address Address { get; set; } = new();
     public string Website { get; set; } = "https://www.joepottschmidt.com";
     public string? Summary { get; set; }
+    public HeadshotInfo Headshot { get; set; } = new();
 }
 
 public class Address
@@ -90,4 +91,13 @@ public class ThemeConfiguration
     public string DefaultTheme { get; set; } = "light";
     public string StorageKey { get; set; } = "resume-theme-preference";
     public string ThemeToggleLocation { get; set; } = "header";
+}
+
+public class HeadshotInfo
+{
+    public string? ImagePath { get; set; }
+    public string AltText { get; set; } = "Joseph R. Pottschmidt - Professional Headshot";
+    public string PlaceholderText { get; set; } = "Professional Photo";
+    public bool ShowPlaceholder { get; set; } = true;
+    public string? ImageTitle { get; set; }
 }

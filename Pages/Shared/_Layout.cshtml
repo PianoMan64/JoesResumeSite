@@ -24,32 +24,54 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <!-- Skip links for accessibility -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <a class="skip-link" href="#navigation">Skip to navigation</a>
     
-    <!-- Header with Navigation -->
-    <header class="sticky-top bg-body border-bottom" role="banner">
-        <nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+    <!-- Enhanced Header with Navigation -->
+    <header class="site-header sticky-top" role="banner">
+        <nav class="navbar navbar-expand-xl" role="navigation" aria-label="Main navigation">
             <div class="container">
-                <span class="navbar-brand h1 mb-0">Joseph R. Pottschmidt</span>
+                <a href="#hero" class="navbar-brand">Joseph R. Pottschmidt</a>
                 
-                <!-- Theme Toggle -->
-                <button class="theme-toggle btn btn-outline-secondary" 
-                        type="button" 
-                        aria-label="Toggle between light and dark theme"
-                        title="Toggle theme">
-                    <i class="bi bi-sun-fill" id="theme-icon" aria-hidden="true"></i>
-                </button>
+                <!-- Button group for smaller screens -->
+                <div class="d-flex align-items-center gap-2 d-xl-none">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" 
+                            type="button" 
+                            aria-label="Toggle between light and dark theme"
+                            title="Toggle theme">
+                        <i class="bi bi-sun-fill" id="theme-icon" aria-hidden="true"></i>
+                    </button>
+                    
+                    <!-- Hamburger Button -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
                 
-                <!-- Desktop Navigation -->
-                <div class="navbar-nav ms-auto d-none d-md-flex" id="navigation">
-                    <a class="nav-link" href="#qualifications" aria-label="Go to Qualifications section">Qualifications</a>
-                    <a class="nav-link" href="#education" aria-label="Go to Education section">Education</a>
-                    <a class="nav-link" href="#work-history" aria-label="Go to Work History section">Work History</a>
-                    <a class="nav-link" href="#musical-journey" aria-label="Go to Musical Journey section">Musical Journey</a>
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto d-flex align-items-center gap-1" id="navigation">
+                        <a class="nav-link" href="#qualifications" aria-label="Go to Qualifications section">Qualifications</a>
+                        <a class="nav-link" href="#education" aria-label="Go to Education section">Education</a>
+                        <a class="nav-link" href="#work-history" aria-label="Go to Work History section">Experience</a>
+                        <a class="nav-link" href="#musical-journey" aria-label="Go to Musical Journey section">Music</a>
+                        
+                        <!-- Theme Toggle for larger screens -->
+                        <button class="theme-toggle d-none d-xl-block ms-3" 
+                                type="button" 
+                                aria-label="Toggle between light and dark theme"
+                                title="Toggle theme">
+                            <i class="bi bi-sun-fill" id="theme-icon-desktop" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -59,43 +81,17 @@
     <main id="main-content" role="main">
         @RenderBody()
     </main>
-
-    <!-- Mobile Bottom Navigation -->
-    <nav class="navbar fixed-bottom bg-body border-top d-md-none" role="navigation" aria-label="Mobile navigation">
-        <div class="container-fluid">
-            <div class="row w-100 text-center">
-                <div class="col-3">
-                    <a href="#qualifications" class="mobile-nav-item text-decoration-none" aria-label="Go to Qualifications section">
-                        <i class="bi bi-award fs-5" aria-hidden="true"></i>
-                        <small class="d-block">Skills</small>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#education" class="mobile-nav-item text-decoration-none" aria-label="Go to Education section">
-                        <i class="bi bi-mortarboard fs-5" aria-hidden="true"></i>
-                        <small class="d-block">Education</small>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#work-history" class="mobile-nav-item text-decoration-none" aria-label="Go to Work History section">
-                        <i class="bi bi-briefcase fs-5" aria-hidden="true"></i>
-                        <small class="d-block">Work</small>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#musical-journey" class="mobile-nav-item text-decoration-none" aria-label="Go to Musical Journey section">
-                        <i class="bi bi-music-note fs-5" aria-hidden="true"></i>
-                        <small class="d-block">Music</small>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
     
-    <!-- Footer -->
-    <footer class="bg-body-tertiary text-center py-3 d-none d-md-block" role="contentinfo">
+    <!-- Scroll to Top Button -->
+    <a href="#hero" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top of page">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </a>
+    
+    <!-- Enhanced Footer -->
+    <footer class="site-footer text-center py-4 d-none d-md-block" role="contentinfo">
         <div class="container">
-            <small class="text-muted">© 2025 Joseph R. Pottschmidt. All rights reserved.</small>
+            <p class="mb-0">© 2025 Joseph R. Pottschmidt. All rights reserved.</p>
+            <p class="small mb-0 mt-1">Built with ASP.NET Core & Bootstrap</p>
         </div>
     </footer>
     

@@ -18,6 +18,7 @@
 - `Address`: Address (required) - Full postal address
 - `Website`: string (required) - "https://www.joepottschmidt.com"
 - `Summary`: string (optional) - Professional summary/bio
+- `Headshot`: HeadshotInfo (required) - Professional photo display configuration
 
 **Address Sub-entity**:
 - `Street`: string - "308 SW 1st. St Apt #3"
@@ -25,11 +26,21 @@
 - `State`: string - "WA"
 - `ZipCode`: string - "98604"
 
+**HeadshotInfo Sub-entity**:
+- `ImagePath`: string (optional) - Path to professional headshot image
+- `AltText`: string (required) - Alternative text for accessibility "Joseph R. Pottschmidt - Professional Headshot"
+- `PlaceholderText`: string (required) - Text displayed when no image available "Professional Photo"
+- `ShowPlaceholder`: boolean (required) - Whether to show placeholder when no image provided
+- `ImageTitle`: string (optional) - Tooltip text for image
+
 **Validation Rules**:
 - Email must be valid format
 - Phone must be valid US format
 - Website must be valid URL
 - All contact fields are required for complete professional presentation
+- Image path must be valid relative or absolute path when provided
+- Alt text required for accessibility compliance
+- Placeholder should be shown when no image is available for professional appearance
 
 ### Qualification
 

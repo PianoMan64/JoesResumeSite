@@ -16,6 +16,8 @@ Software Developer / Report Designer
 •	Design and develop reports using SQL Server Reporting Services (SSRS) for various clients.
 •	Design and develop reports using Power BI for various clients.
 •	Design and develop .NET Web applications using C#. 
+*    Design and develop .NET Windows applications using C#.
+
 
 
 Uber

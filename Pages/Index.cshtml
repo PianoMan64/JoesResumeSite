@@ -4,46 +4,49 @@
     ViewData["Title"] = "Joseph R. Pottschmidt - Resume";
 }
 
-<!-- Professional Profile Section -->
-<section id="professional-profile" class="section-spacing">
-    <div class="container py-5">
+<!-- Hero Section -->
+<section id="hero" class="hero-section section-gray">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="text-center mb-4">
-                    <h1 class="display-4 fw-bold">@Model.ResumeData.Profile.Name</h1>
-                    <p class="lead text-muted">Software Developer & Professional Musician</p>
+            <div class="col-lg-8 text-center hero-content fade-in">
+                <!-- Professional Headshot -->
+                <div class="headshot-container">
+                    <div class="headshot-wrapper">
+                        @if (!string.IsNullOrEmpty(Model.ResumeData.Profile.Headshot.ImagePath))
+                        {
+                            <img src="@Model.ResumeData.Profile.Headshot.ImagePath" 
+                                 alt="@Model.ResumeData.Profile.Headshot.AltText" 
+                                 title="@Model.ResumeData.Profile.Headshot.ImageTitle"
+                                 class="headshot-image" />
+                        }
+                        else if (Model.ResumeData.Profile.Headshot.ShowPlaceholder)
+                        {
+                            <div class="headshot-placeholder">
+                                <div>
+                                    <i class="bi bi-person-circle"></i>
+                                    <div>@Model.ResumeData.Profile.Headshot.PlaceholderText</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
                 
-                <div class="row g-3 text-center">
-                    <div class="col-md-6">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <i class="bi bi-telephone-fill me-2 text-primary"></i>
-                            <a href="tel:@Model.ResumeData.Profile.Phone" class="text-decoration-none">
-                                @Model.ResumeData.Profile.Phone
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <i class="bi bi-envelope-fill me-2 text-primary"></i>
-                            <a href="mailto:@Model.ResumeData.Profile.Email" class="text-decoration-none">
-                                @Model.ResumeData.Profile.Email
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
-                            <span>@Model.ResumeData.Profile.Address.FullAddress</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <i class="bi bi-globe me-2 text-primary"></i>
-                            <a href="@Model.ResumeData.Profile.Website" target="_blank" class="text-decoration-none">
-                                @Model.ResumeData.Profile.Website
-                            </a>
-                        </div>
+                <h1 class="hero-title mb-3">@Model.ResumeData.Profile.Name</h1>
+                <p class="hero-subtitle">Software Developer & Professional Musician</p>
+                
+                <!-- Contact Information Grid -->
+                <div class="contact-grid">
+                    <a href="tel:@Model.ResumeData.Profile.Phone" class="contact-item">
+                        <i class="contact-icon bi bi-telephone-fill"></i>
+                        <span>@Model.ResumeData.Profile.Phone</span>
+                    </a>
+                    <a href="mailto:@Model.ResumeData.Profile.Email" class="contact-item">
+                        <i class="contact-icon bi bi-envelope-fill"></i>
+                        <span>@Model.ResumeData.Profile.Email</span>
+                    </a>
+                    <div class="contact-item">
+                        <i class="contact-icon bi bi-geo-alt-fill"></i>
+                        <span>@Model.ResumeData.Profile.Address.FullAddress</span>
                     </div>
                 </div>
             </div>
@@ -52,31 +55,33 @@
 </section>
 
 <!-- Qualifications Section -->
-<section id="qualifications" class="section-spacing bg-body-secondary">
-    <div class="container py-5">
+<section id="qualifications" class="section section-gray">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <h2 class="display-5 fw-bold text-center mb-5">Qualifications</h2>
+                <h2 class="section-title">Professional Qualifications</h2>
                 
-                <div class="row g-4">
+                <div class="qualifications-grid">
                     @foreach (var qualification in Model.ResumeData.Qualifications)
                     {
-                        <div class="col-lg-6">
-                            <div class="card h-100 border-0 shadow-sm">
+                        <div class="qualification-item fade-in">
+                            <div class="professional-card h-100">
                                 <div class="card-body">
-                                    <h3 class="card-title h5 text-primary">@qualification.Category</h3>
-                                    <p class="text-muted small mb-2">@qualification.YearsExperience</p>
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h3 class="h5 mb-0" style="color: var(--primary-color);">@qualification.Category</h3>
+                                        <span class="badge bg-primary">@qualification.YearsExperience</span>
+                                    </div>
                                     
                                     <div class="mb-3">
                                         @foreach (var skill in qualification.Skills)
                                         {
-                                            <span class="badge bg-secondary me-1 mb-1">@skill</span>
+                                            <span class="skill-badge">@skill</span>
                                         }
                                     </div>
                                     
                                     @if (!string.IsNullOrEmpty(qualification.Description))
                                     {
-                                        <p class="card-text small">@qualification.Description</p>
+                                        <p class="text-muted small mb-0">@qualification.Description</p>
                                     }
                                 </div>
                             </div>
@@ -89,27 +94,29 @@
 </section>
 
 <!-- Education Section -->
-<section id="education" class="section-spacing">
-    <div class="container py-5">
+<section id="education" class="section section-white">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="display-5 fw-bold text-center mb-5">Education</h2>
+                <h2 class="section-title">Education</h2>
                 
                 @foreach (var education in Model.ResumeData.Education)
                 {
-                    <div class="card border-0 shadow-sm mb-4">
+                    <div class="professional-card mb-4 fade-in">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h3 class="h5 mb-1">@education.Degree</h3>
-                                    <p class="text-primary mb-1">@education.Institution</p>
+                                    <h3 class="h5 mb-2" style="color: var(--primary-color);">@education.Degree</h3>
+                                    <h4 class="h6 mb-1">@education.Institution</h4>
                                     @if (!string.IsNullOrEmpty(education.Location))
                                     {
-                                        <p class="text-muted small mb-0">@education.Location</p>
+                                        <p class="text-muted small mb-0">
+                                            <i class="bi bi-geo-alt me-1"></i>@education.Location
+                                        </p>
                                     }
                                 </div>
-                                <div class="col-md-4 text-md-end">
-                                    <span class="badge bg-primary fs-6">@education.Year</span>
+                                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                    <span class="date-badge">@education.Year</span>
                                 </div>
                             </div>
                         </div>
@@ -121,63 +128,95 @@
 </section>
 
 <!-- Work History Section -->
-<section id="work-history" class="section-spacing bg-body-secondary">
-    <div class="container py-5">
+<section id="work-history" class="section section-gray">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <h2 class="display-5 fw-bold text-center mb-5">Work History</h2>
+                <h2 class="section-title">Professional Experience</h2>
                 
-                @foreach (var work in Model.ResumeData.WorkHistory)
-                {
-                    <div class="card border-0 shadow-sm mb-4 work-experience-item">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <h3 class="h4 text-primary mb-1">@work.Position</h3>
-                                    <h4 class="h5 mb-2">@work.Company</h4>
-                                    @if (!string.IsNullOrEmpty(work.Location))
-                                    {
-                                        <p class="text-muted small mb-3">@work.Location</p>
-                                    }
-                                </div>
-                                <div class="col-md-4 text-md-end">
-                                    <span class="badge @(work.IsCurrent ? "bg-success" : "bg-secondary") fs-6">
-                                        @work.DateRange
-                                    </span>
+                <div class="position-relative">
+                    @foreach (var work in Model.ResumeData.WorkHistory)
+                    {
+                        <div class="work-item fade-in">
+                            <div class="professional-card">
+                                <div class="card-body">
+                                    <div class="row align-items-start">
+                                        <div class="col-md-8">
+                                            <h3 class="h4 mb-2" style="color: var(--primary-color);">@work.Position</h3>
+                                            <h4 class="h5 mb-1">@work.Company</h4>
+                                            @if (!string.IsNullOrEmpty(work.Location))
+                                            {
+                                                <p class="text-muted small mb-3">
+                                                    <i class="bi bi-geo-alt me-1"></i>@work.Location
+                                                </p>
+                                            }
+                                        </div>
+                                        <div class="col-md-4 text-md-end">
+                                            <span class="date-badge @(work.IsCurrent ? "current-badge" : "")">
+                                                @work.DateRange
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <ul class="responsibility-list">
+                                        @foreach (var responsibility in work.Responsibilities)
+                                        {
+                                            <li class="responsibility-item">
+                                                <i class="responsibility-icon bi bi-check-circle-fill"></i>
+                                                <span>@responsibility</span>
+                                            </li>
+                                        }
+                                    </ul>
                                 </div>
                             </div>
-                            
-                            <ul class="list-unstyled">
-                                @foreach (var responsibility in work.Responsibilities)
-                                {
-                                    <li class="mb-2">
-                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                        @responsibility
-                                    </li>
-                                }
-                            </ul>
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Musical Journey Section -->
-<section id="musical-journey" class="section-spacing">
-    <div class="container py-5">
+<section id="musical-journey" class="section section-white">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="display-5 fw-bold text-center mb-5">@Model.ResumeData.MusicalJourney.Title</h2>
                 
-                @foreach (var musicalSection in Model.ResumeData.MusicalJourney.Sections.OrderBy(s => s.Order))
-                {
-                    <div class="mb-4">
-                        <h3 class="h4 text-primary mb-3">@musicalSection.SectionTitle</h3>
-                        <p class="lead">@musicalSection.Content</p>
+                <div class="professional-card mb-4 fade-in">
+                    <div class="card-body">
+                       
+                        @foreach (var musicalSection in Model.ResumeData.MusicalJourney.Sections.OrderBy(s => s.Order))
+                        {
+                            <div class="mb-4">
+                                <h4 class="h6 mb-2 bi bi-music-note me-2" style="color: var(--primary-color); font-weight: 600;"> @musicalSection.SectionTitle</h4>
+                                <p class="mb-0" style="line-height: 1.7;">@musicalSection.Content</p>
+                            </div>
+                        }
                     </div>
-                }
+                </div>
+                
+                <!-- Call to Action -->
+                <div class="text-center mt-5">
+                    <div class="professional-card">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3" style="color: var(--primary-color);">Let's Connect</h3>
+                            <p class="mb-3">Interested in working together? I'd love to hear from you.</p>
+                            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                <a href="tel:@Model.ResumeData.Profile.Phone" class="btn btn-primary">
+                                    <i class="bi bi-telephone me-2"></i>Call Me
+                                </a>
+                                <a href="mailto:@Model.ResumeData.Profile.Email" class="btn btn-outline-primary">
+                                    <i class="bi bi-envelope me-2"></i>Send Email
+                                </a>
+                                <a href="@Model.ResumeData.Profile.Website" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary">
+                                    <i class="bi bi-globe me-2"></i>Visit Website
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

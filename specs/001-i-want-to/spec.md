@@ -91,10 +91,14 @@ A user accesses Joe's resume website from their mobile device or tablet and expe
 - **FR-009**: System MUST include proper semantic HTML structure for accessibility and SEO
 - **FR-010**: System MUST highlight the currently active section in the navigation menu during scrolling
 - **FR-011**: System MUST display Joe's complete contact information including phone (360) 831-7131, email <joe@joepottschmidt.com>, address 308 SW 1st. St Apt #3, Battle Ground, WA 98604, and website <https://www.joepottschmidt.com>
+- **FR-012**: System MUST provide a dedicated space for displaying a professional headshot with responsive circular styling, hover effects, and graceful fallback to a professional placeholder when no image is provided
+- **FR-013**: System MUST include a scroll-to-top button that appears when users scroll down (after 300px) and smoothly returns them to the top of the page when clicked, with appropriate hover effects and responsive sizing
 
 ### Key Entities
 
-- **Professional Profile**: Joe's core identity including name, title, full contact information (phone: (360) 831-7131, email: <joe@joepottschmidt.com>, address: 308 SW 1st. St Apt #3, Battle Ground, WA 98604, website: <https://www.joepottschmidt.com>), and professional summary
+- **Professional Profile**: Joe's core identity including name, title, full contact information (phone: (360) 831-7131, email: <joe@joepottschmidt.com>, address: 308 SW 1st. St Apt #3, Battle Ground, WA 98604, website: <https://www.joepottschmidt.com>), professional headshot, and professional summary
+- **Professional Headshot**: Optional professional photo display with placeholder support, responsive sizing, and professional styling with circular frame and hover effects
+- **Scroll-to-Top Button**: Fixed position floating action button that appears on scroll and provides quick navigation back to the page top with smooth scrolling animation
 - **Qualifications Section**: Skills, expertise areas, and years of experience organized by technology and domain
 - **Work History**: Chronological employment history with company names, positions, dates, and detailed responsibilities
 - **Education Section**: Academic background and certifications
@@ -114,6 +118,8 @@ A user accesses Joe's resume website from their mobile device or tablet and expe
 - **SC-006**: Users can read all content without horizontal scrolling on mobile devices
 - **SC-007**: Navigation links scroll to target sections within 1 second with smooth animation
 - **SC-008**: Theme preference persists across browser sessions with 100% reliability
+- **SC-009**: Professional headshot displays with proper aspect ratio and responsive sizing (200px desktop, 150px tablet, 120px mobile) with smooth hover effects and professional placeholder when no image is available
+- **SC-010**: Scroll-to-top button appears smoothly after scrolling 300px down the page and returns user to top within 1 second with smooth animation, includes appropriate hover effects and responsive sizing for all devices
 
 ### Assumptions
 

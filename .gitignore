@@ -109,3 +109,4 @@ yarn-error.log*
 # Static site generation output
 publish/
 dist/
+.fake
